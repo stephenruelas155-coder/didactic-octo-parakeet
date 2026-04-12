@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Card Matching Game</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="navbar-name"> fast food card matching game</a>
+            <div>
+                <button id="reset" class="btn btn-danger ms-2 d-none">
+                    reset
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class='rules'>
+        <h2>Match each card with its corresponding food item in the least attempts</h2>
+    </div>
+
+    <div id="gameBoard"></div>
+
+    <form id="scoreForm" class="d-none">
+        <p>Attempts: <span id="attempts">0 </span></p>
+    </form>
+
+    <footer>
+        <a href="https://github.com/stephenruelas155-coder" class="" target="_blank">GitHub Profile</a>
+        <a href="https://github.com/stephenruelas155-coder/didactic-octo-parakeet" class="" target="_blank">GitHub
+            Repo</a>
+        <button id="themeToggle" class="btn btn-secondary">
+            Toggle Theme
+        </button>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/game.js"></script>
+</body>
+
+</html>

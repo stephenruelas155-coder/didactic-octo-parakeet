@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Saira+Stencil:ital,wght@0,100..900;1,100..900&family=Space+Mono&display=swap');
+
+:root {
+    --color-nav: purple;
+    --spaceing: 10px;
+    --color-footer: rgb(47, 126, 106);
+}
+
+nav {
+    background: var(--color-nav);
+    color: white;
+    font-size: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: "saira stencil", sans-serif;
+}
+
+.navbar-name {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    font-size: 50px;
+}
+
+/* Push button to the right */
+.navbar div {
+    margin-left: auto;
+}
+
+footer {
+    background: var(--color-footer);
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: "saira stencil", sans-serif;
+}
+
+.theme-toggle {
+    margin-left: auto;
+}
+
+.rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "saira stencil", sans-serif;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: var(--spaceing);
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+body.light {
+    background: white;
+    color: black;
+}
+
+/* Dark mode */
+body.dark {
+    background: #121212;
+    color: white;
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.card:focus {
+    outline: 3px solid yellow;
+}
+
+.attempts {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#scoreForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none;
+    }
+}
