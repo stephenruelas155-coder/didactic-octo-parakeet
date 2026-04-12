@@ -26,24 +26,17 @@ function shuffle(arr) {
 
 function renderBoard() {
     board.innerHTML = "";
-
     shuffle(cards).forEach(card => {
         const div = document.createElement("div");
         div.classList.add("card");
-
         div.innerHTML = `<img src="images/back.png" alt="card back">`;
-
         div.dataset.img = card.img;
-
         div.setAttribute("tabindex", "0");
         div.setAttribute("role", "button");
-
         div.addEventListener("click", handleClick);
-
         div.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") handleClick(e);
         });
-
         board.appendChild(div);
     });
 }
@@ -51,45 +44,31 @@ function renderBoard() {
 function handleClick(e) {
     const card = e.target.closest(".card");
     if (!card || card.classList.contains("flipped") || isProcessing) return;
-
     card.classList.add("flipped");
     card.innerHTML = `<img src="${card.dataset.img}" alt="food card">`;
-
     flipped.push(card);
-
     if (flipped.length === 2) {
         attempts++;
         attemptsDisplay.textContent = attempts;
-
         const [c1, c2] = flipped;
-
         if (c1.dataset.img !== c2.dataset.img) {
     isProcessing = true;
-
     c1.classList.add("fade-out");
     c2.classList.add("fade-out");
-
     setTimeout(() => {
         c1.classList.remove("flipped", "fade-out");
         c2.classList.remove("flipped", "fade-out");
-
         c1.innerHTML = `<img src="images/back.png" alt="card back">`;
         c2.innerHTML = `<img src="images/back.png" alt="card back">`;
-
         isProcessing = false;
     }, 800);
 }
-
-// ✅ ALWAYS reset after checking
 flipped = [];
     }
 }
-
 const themeBtn = document.getElementById("themeToggle");
-
 themeBtn.addEventListener("click", () => {
     const isDark = document.body.classList.contains("dark");
-
     if (isDark) {
         document.body.classList.remove("dark");
         document.body.classList.add("light");
@@ -101,17 +80,14 @@ themeBtn.addEventListener("click", () => {
     }
 });
 
-
 resetBtn.addEventListener("click", () => {
     flipped = [];
     isProcessing = false;
     attempts = 0;
     attemptsDisplay.textContent = attempts;
-
-    board.innerHTML = ""; // 🔥 ensures clean wipe
+    board.innerHTML = "";
     renderBoard();
 });
-
 console.log("Type wowsier() in console");
 const attemptDisplay = document.getElementById("attempts");
 window.wowsier = () => {
