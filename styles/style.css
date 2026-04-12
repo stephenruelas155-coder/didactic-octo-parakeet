@@ -7,44 +7,44 @@
 }
 
 nav {
-    background: var(--color-nav);
-    color: white;
-    font-size: 50px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-family: "saira stencil", sans-serif;
+  background: var(--color-nav);
+  color: white;
+  font-size: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: "saira stencil", sans-serif;
 }
 
 .navbar-name {
-    flex: 1;
-    text-align: center;
-    margin: 0;
-    font-size: 50px;
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 50px;
 }
 
 /* Push button to the right */
 .navbar div {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 footer {
-    background: var(--color-footer);
-    color: white;
-    font-size: 20px;
-    padding: 15px;
-    justify-content: space-between;
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-family: "saira stencil", sans-serif;
+  background: var(--color-footer);
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  justify-content: space-between;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: "saira stencil", sans-serif;
 }
 
 .theme-toggle {
     margin-left: auto;
 }
 
-.rules {
+.rules{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,58 +52,74 @@ footer {
 }
 
 #gameBoard {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: var(--spaceing);
-    justify-content: center;
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: var(--spaceing);
+  justify-content: center;
+  margin-top: 20px;
 }
 
+
 .card {
-    width: 100px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  width: 100px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 body.light {
-    background: white;
-    color: black;
+  background: white;
+  color: black;
 }
 
 /* Dark mode */
 body.dark {
-    background: #121212;
-    color: white;
+  background: #121212;
+  color: white;
+}
+
+/* Optional: improve card contrast in dark mode */
+body.dark .card {
+  background: #222;
+}
+
+.card:nth-child(odd) {
+  background: #444;
 }
 
 .card img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 .card:focus {
-    outline: 3px solid yellow;
+  outline: 3px solid yellow;
 }
 
 .attempts {
-    text-align: center;
-    margin: 20px 0;
+  text-align: center;
+  margin: 20px 0;
 }
 
 #scoreForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* 👈 evenly spaces input + button */
+  margin-bottom: 20px;
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none;
-    }
+  * {
+    transition: none;
+  }
 }
