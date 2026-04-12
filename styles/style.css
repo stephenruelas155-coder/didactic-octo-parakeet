@@ -23,7 +23,6 @@ nav {
   font-size: 50px;
 }
 
-/* Push button to the right */
 .navbar div {
   margin-left: auto;
 }
@@ -59,7 +58,6 @@ footer {
   margin-top: 20px;
 }
 
-
 .card {
   width: 100px;
   height: 120px;
@@ -74,13 +72,11 @@ body.light {
   color: black;
 }
 
-/* Dark mode */
 body.dark {
   background: #121212;
   color: white;
 }
 
-/* Optional: improve card contrast in dark mode */
 body.dark .card {
   background: #222;
 }
@@ -108,7 +104,7 @@ body.dark .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px; /* 👈 evenly spaces input + button */
+  gap: 10px; 
   margin-bottom: 20px;
 }
 
@@ -117,7 +113,6 @@ body.dark .card {
   transition: opacity 0.4s ease;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none;
