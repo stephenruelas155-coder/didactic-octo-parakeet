@@ -9,6 +9,7 @@ document.body.classList.add(savedTheme);
 
 let attempts = 0;
 let flipped = [];
+let isProcessing = false;
 
 const cards = [
     { id: 1, img: "images/burger.png" },
@@ -49,7 +50,7 @@ function renderBoard() {
 
 function handleClick(e) {
     const card = e.target.closest(".card");
-    if (!card || card.classList.contains("flipped")) return;
+    if (!card || card.classList.contains("flipped") || isProcessing) return;
 
     card.classList.add("flipped");
     card.innerHTML = `<img src="${card.dataset.img}" alt="food card">`;
@@ -63,24 +64,24 @@ function handleClick(e) {
         const [c1, c2] = flipped;
 
         if (c1.dataset.img !== c2.dataset.img) {
-            c1.classList.remove("fade-out");
-            c2.classList.remove("fade-out");
+    isProcessing = true;
 
-            setTimeout(() => {
-                c1.classList.remove("flipped", "fade-out");
-                c2.classList.remove("flipped", "fade-out");
+    c1.classList.add("fade-out");
+    c2.classList.add("fade-out");
 
-                c1.innerHTML = `<img src="images/back.png" alt="card back">`;
-                c2.innerHTML = `<img src="images/back.png" alt="card back">`;
-            }, 800);
-        } else {
-            let best = getBestScore();
-            if (best == 0 || attempts < best) {
-                saveBestScore(attempts);
-            }
-        }
+    setTimeout(() => {
+        c1.classList.remove("flipped", "fade-out");
+        c2.classList.remove("flipped", "fade-out");
 
-        flipped = [];
+        c1.innerHTML = `<img src="images/back.png" alt="card back">`;
+        c2.innerHTML = `<img src="images/back.png" alt="card back">`;
+
+        isProcessing = false;
+    }, 800);
+}
+
+// ✅ ALWAYS reset after checking
+flipped = [];
     }
 }
 
@@ -102,8 +103,12 @@ themeBtn.addEventListener("click", () => {
 
 
 resetBtn.addEventListener("click", () => {
+    flipped = [];
+    isProcessing = false;
     attempts = 0;
     attemptsDisplay.textContent = attempts;
+
+    board.innerHTML = ""; // 🔥 ensures clean wipe
     renderBoard();
 });
 
