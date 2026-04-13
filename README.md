@@ -17,3 +17,22 @@ copilot
 
 code snippet 
 
+//this peice of code helps show the cards and listens for clicks
+function renderBoard() {
+    board.innerHTML = "";
+    //this peice shuffles the cards everytime the game is opened or the reset button is pressed
+    shuffle(cards).forEach(card => {
+        const div = document.createElement("div");
+        div.classList.add("card");
+        div.innerHTML = `<img src="images/back.png" alt="card back">`;
+        div.dataset.img = card.img;
+        div.setAttribute("tabindex", "0");
+        div.setAttribute("role", "button");
+        div.addEventListener("click", handleClick);
+        //this part listens for keyboard inputs
+        div.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") handleClick(e);
+        });
+        board.appendChild(div);
+    });
+}
