@@ -39,6 +39,9 @@ footer {
   font-family: "saira stencil", sans-serif;
 }
 
+footer a {color: white;text-decoration: none;font-weight: 500;}
+footer a:hover {color: #ffd700; text-decoration: underline;}
+
 .theme-toggle {
     margin-left: auto;
 }
